@@ -1,19 +1,45 @@
 {% extends "base.html" %}
 
 {% block title %}
-
-{% endblock %}
+Thermos -- Add a URL
+{%  endblock %}
 
 {% block content %}
+<section>
+    <h1>Add a new URL</h1>
+    <form action="" method="post">
+        {{form.hidden_tag()}}
+        <table>
+            <tr {% if form.description.errors %} class="error" {% endif %}>
+                <td>Please enter your bookmark here:</td>
+                <td>{{ form.url(size=30)}}</td>
+            </tr>
 
-<form action="" method="post">
-    <p>Please enter your bookmark here:
-        <input type="text" name="url">
-    </p>
-    <p>
-        <button type="submit">Submit</button>
-    </p>
-</form>
+            <!--<tr class="error">-->
+            <!--<td></td>-->
+            <!--<td>-->
+            <!--<ul>-->
+            <!--{% for error in form.description.errors %}-->
+            <!--<li>{{error}}</li>-->
+            <!--{%endfor%}-->
+            <!--</ul>-->
+            <!--</td>-->
+            <!--</tr>-->
 
+            <tr>
+                <td>Add an optional description</td>
+                <td>{{ form.description(size=30)}}</td>
+            </tr>
+            <tr class="submit">
+                <td></td>
+                <td>
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>
+{% endblock %}
 
+{% block sidebar %}
 {% endblock %}

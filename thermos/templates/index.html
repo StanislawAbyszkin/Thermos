@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Thermos -- Welcome
+Thermos - Welcome
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@ Thermos -- Welcome
 
 <article>
     <header>
-        <h1>article header h1</h1>
+        <h1>{{title}}</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc
             vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est,
             eu porta velit mollis nec.</p>
@@ -19,7 +19,7 @@ Thermos -- Welcome
         {% if new_bookmarks %}
         <ul>
             {% for bm in new_bookmarks %}
-            <li>{{bm.user}} added <a href="{{ bm.url }}">{{ bm.url }}</a></li>
+            <li>{{bm.user}} added <a href="{{ bm.description }}">{{ bm.url }}</a></li>
             {% endfor %}
         </ul>
         {% else %}

@@ -8,8 +8,10 @@ app.config['SECRET_KEY'] = '\xfe\xd0>\xf2\x9ds\x1b\xa6N#;\xfd\xec#\x8a\xa7\xd3g\
 
 bookmarks = []
 
-def store_bookmark(url):
+
+def store_bookmark(url, description):
     bookmarks.append(dict(url=url,
+                          description=description,
                           user= "Stasiu",
                           date= datetime.utcnow()))
 
@@ -29,13 +31,15 @@ def index():
 
 @app.route("/add", methods=['GET','POST'])
 def add():
-    if request.method == "POST":
-        url = request.form['url']
-        store_bookmark(url)
+    form = BookmarkForm()
+    if form.validate_on_submit():
+        url = form.url.data
+        description = form.description.data
+        store_bookmark(url, description)
         app.logger.debug('stored url ' + url)
-        flash("Stored bookmark {0}".format(url))
+        flash("Stored '{0}'".format(description))
         return redirect(url_for('index'))
-    return render_template('add.html')
+    return render_template('add.html', form=form)
 
 @app.errorhandler(500)
 def server_error(e):
