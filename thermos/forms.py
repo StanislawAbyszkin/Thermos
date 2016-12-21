@@ -5,8 +5,8 @@ from wtforms.validators import DataRequired, url, Email
 
 
 class BookmarkForm(FlaskForm):
-    url = StringField('url', validators=[DataRequired(), url()])
-    description = StringField('description')
+    url = StringField('The URL for your bookmark:', validators=[DataRequired(), url()])
+    description = StringField('Add an optional description:')
 
     def validate(self):
         if not self.url.data.startswith('http://') or self.url.data.startswith('https://'):
