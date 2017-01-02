@@ -25,8 +25,8 @@ login_manager.init_app(app)
 # for displaying timestamps
 moment = Moment(app)
 
-import views
-import models
+import thermos.views
+import thermos.models
 
 # if __name__ == '__main__':
 #     app.run(host='0.0.0.0', debug=True)
