@@ -158,6 +158,15 @@ nav a:hover {
     FLASHES style
    =============== */
 
+/* link styling */
+a,
+a:visited {
+    color: #ce7508;
+}
+a:hover, aside a:hover, aside a:visited:hover {
+    color: #ce7508;
+    }
+
 .flashes ul {
     margin: 0 0;
     background: #a3ffc9;
@@ -178,7 +187,36 @@ article.flashes {
     margin-bottom: 1em;
 }
 
+/* bookmark list styling */
+ul.bookmarks {
+    list-style: none none;
+    padding-left: 0;
+}
 
+ul.bookmarks li {
+    padding-bottom: .5em;
+    border-top: 1px solid #e29a48;
+    padding: 1em 0;
+}
+
+a.header {
+    color: #e29a48
+    text-decoration: none;
+    display: block;
+}
+
+a.header h3 {
+    margin: 0 0;
+}
+
+div.info {
+    font-size: .95em;
+    color: #f7a547;
+}
+
+span.editlinks {
+    float: right;
+}
 
 /* ==========================================================================
    Media Queries
